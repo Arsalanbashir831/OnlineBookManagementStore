@@ -51,7 +51,7 @@ public class Login {
                 } else {
                     System.out.println("Invalid roles");
                 }
-                ps.close();
+               // ps.close();
             } else {
                 System.out.println("Invalid credentials try again ");
 
