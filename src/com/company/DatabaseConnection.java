@@ -8,6 +8,7 @@ public class DatabaseConnection {
 
     }
     // connection with database
+    // if your xammp dont have pass than remove the password 'root'
     public Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookmanagementsystem", "root", "root");
 
 }
