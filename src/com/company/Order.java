@@ -122,6 +122,7 @@ public class Order {
         ps.setInt(1, userId);
         ResultSet rs = ps.executeQuery();
         // formating is needed
+        int price=0;
         System.out.println("User Id ||  Username || Book Name || Quantity || Total Price || Order Status ");
         while (rs.next()) {
             System.out.println(rs.getInt(1) + " \t" + rs.getString(2) + " \t" + rs.getString(3) + "  \t" + rs.getInt(4) + "  \t" + rs.getInt(5) + "  \t" + rs.getString(6));

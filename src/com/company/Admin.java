@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Admin extends User{
 
-
     Book book= new Book();
     BookCategories bookCategories= new BookCategories();
     Order order= new Order();

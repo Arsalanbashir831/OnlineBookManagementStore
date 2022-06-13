@@ -116,7 +116,7 @@ ps.setInt(1,userId);
 rs=ps.executeQuery();
 if (rs.next()){
     System.out.println("ID  ||  Rank    ||  Subscription Plan  ||  Points   ||  Discount Availible ");
-    System.out.println(rs.getInt(1)+"  "+rs.getString(2)+" "+rs.getInt(3)+"  "+rs.getDouble(4));
+    System.out.println(rs.getInt(1)+" \t "+rs.getString(3)+" \t"+rs.getString(4)+" \t"+rs.getInt(5)+"  \t"+rs.getDouble(6));
 }
 }
     public void eclubDoOrder(int userId) throws SQLException {
