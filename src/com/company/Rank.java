@@ -55,13 +55,25 @@ public class Rank {
         String deleteQueryById="delete from `rank` where RankId =?";
         System.out.println("Enter the new Rank Id : ");
         rankId=in.nextInt();
+        String deleteFromChild="Delete from e_club where MembershipRank=?";
+        ps=db.connection.prepareStatement(deleteFromChild);
+        ps.setInt(1,rankId);
+        System.out.println("If you delete the memeberRank than that memberRank Customer " +
+                "will automatically remove from the eclub are you sure to delete it ?" +
+                "(1-Yes / 2-Cancel )");
+        int opt;
+        opt=in.nextInt();
+        if (opt==1){
+        ps.executeUpdate();
         ps=db.connection.prepareStatement(deleteQueryById);
         ps.setInt(1,rankId);
         ps.executeUpdate();
         System.out.println("Rank of id "+ rankId +"is deleted successfully");
+        }else{
+            System.out.println("Deletion Cancel");
+        }
     }
     public void UpdateRank() throws SQLException {
-
         viewRank();
         String UpdateQuery="UPDATE `rank` set RankName=? where RankId = ? ";
         System.out.println("Enter the id of the rank : ");

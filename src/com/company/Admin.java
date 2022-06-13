@@ -7,10 +7,10 @@ public class Admin extends User{
 
 
     Book book= new Book();
+    BookCategories bookCategories= new BookCategories();
     Order order= new Order();
     CharityBook charityBook= new CharityBook();
     Eclub eclub = new Eclub();
-    Review review = new Review();
     UserPayment userPayment= new UserPayment();
     Payment payment= new Payment();
     Rank rank= new Rank();
@@ -28,14 +28,15 @@ public class Admin extends User{
         while (true) {
             System.out.println("From where you want to perform operation: ");
             System.out.println("1- Book");
-            System.out.println("2- Charity Book");
-            System.out.println("3- Order");
-            System.out.println("4- Payment");
-            System.out.println("5- Rank");
-            System.out.println("6- Review");
-            System.out.println("7- View E-club Members ");
-            System.out.println("8- Status");
-            System.out.println("9- Logout ");
+            System.out.println("2- Book Categories");
+            System.out.println("3- Charity Book");
+            System.out.println("4- Order");
+            System.out.println("5- Payment");
+            System.out.println("6- Rank");
+            System.out.println("7- Review");
+            System.out.println("8- View E-club Members ");
+            System.out.println("9- Status");
+            System.out.println("10- Logout ");
             opt = in.nextInt();
 
 
@@ -67,7 +68,23 @@ public class Admin extends User{
                     book.filterTheBooksByCategory();
                 }
             }
-            if (opt == 2) {
+            if (opt==2){
+                System.out.println("1- Add Book Category");
+                System.out.println("2- View Book Category");
+                System.out.println("3- Update Book Category");
+                System.out.println("4- Search Book Category");
+                subOpt=in.nextInt();
+                if (subOpt==1){
+                    bookCategories.insertNewCategory();
+                }if (subOpt==2){
+                    bookCategories.viewCategories();
+                }if (subOpt==3){
+                    bookCategories.UpdateCategory();
+                }if(subOpt==4){
+                    bookCategories.SearchCategoryByName();
+                }
+            }
+            if (opt == 3) {
                 System.out.println(" 1- View Chairity Books ");
                 System.out.println(" 2- Delete Chairity Books ");
                 subOpt = in.nextInt();
@@ -78,7 +95,7 @@ public class Admin extends User{
                     charityBook.deleteBook();
                 }
             }
-            if (opt == 3) {
+            if (opt == 4) {
                 System.out.println("1- View All Orders  ");
                 System.out.println("2- Update the Delivery Status");
                 System.out.println("3- Check the total sales");
@@ -93,7 +110,7 @@ public class Admin extends User{
                     order.calculateSalesTotal();
                 }
             }
-            if (opt == 4) {
+            if (opt == 5) {
                 System.out.println("1- View Payment methods ");
                 System.out.println("2- add Payment methods ");
                 System.out.println("3- delete Payment methods ");
@@ -116,7 +133,7 @@ public class Admin extends User{
                     userPayment.viewAllUserPaymentMethod();
                 }
             }
-            if (opt == 5) {
+            if (opt == 6) {
                 System.out.println("1- view Ranks");
                 System.out.println("2- Update  Ranks");
                 System.out.println("3- delete  Ranks");
@@ -135,7 +152,7 @@ public class Admin extends User{
                     rank.addRank();
                 }
             }
-            if (opt == 6) {
+            if (opt == 7) {
                 System.out.println("1-View Reviews");
                 System.out.println("2-Delete Reviews");
                 subOpt = in.nextInt();
@@ -147,14 +164,13 @@ public class Admin extends User{
                     rev.deleteReviews();
                 }
             }
-            if (opt == 7) {
+            if (opt == 8) {
                 eclub.viewEClubMembers();
             }
-            if (opt == 8) {
+            if (opt == 9) {
                 System.out.println("1- View Status");
                 System.out.println("2- add Status");
-                System.out.println("3- delete Status");
-                System.out.println("4- update Status");
+                System.out.println("3- update Status");
                 subOpt = in.nextInt();
                 if (subOpt == 1) {
                     status.viewStatus();
@@ -162,14 +178,12 @@ public class Admin extends User{
                 if (subOpt == 2) {
                     status.addStatus();
                 }
+
                 if (subOpt == 3) {
-                    status.DeleteStatus();
-                }
-                if (subOpt == 4) {
                     status.updateStatus();
                 }
             }
-            if (opt==9){
+            if (opt==10){
                 break;
             }
         }

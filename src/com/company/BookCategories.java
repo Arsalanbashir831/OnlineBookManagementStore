@@ -46,16 +46,19 @@ public class BookCategories {
         ps.executeUpdate();
         System.out.println("Category Inserted Successfully");
     }
-    public void deleteCategoryById() throws SQLException{
-        String deleteQueryById="delete from bookcategories where Cate_Id=?";
-        System.out.println("Enter the Category id of the book : ");
-        Cate_Id=in.nextInt();
-        ps=db.connection.prepareStatement(deleteQueryById);
-        ps.setInt(1,Cate_Id);
-        ps.executeUpdate();
-        System.out.println("Category of id "+ Cate_Id +"is deleted successfully");
-
-    }
+//    public void deleteCategoryById() throws SQLException{
+//        String deleteQueryById="delete from bookcategories where Cate_Id=?";
+//        System.out.println("Enter the Category id of the book : ");
+//        Cate_Id=in.nextInt();
+//        //delete from charity
+////        String delFromCharity="delete from charitybooks where ";
+//        //delete from book
+//        ps=db.connection.prepareStatement(deleteQueryById);
+//        ps.setInt(1,Cate_Id);
+//        ps.executeUpdate();
+//        System.out.println("Category of id "+ Cate_Id +"is deleted successfully");
+//
+//    }
         public void SearchCategoryByName () throws SQLException {
         String searchQuery = "Select  * from bookcategories where Category_name = ?";
             System.out.println("Enter the name of Category : ");

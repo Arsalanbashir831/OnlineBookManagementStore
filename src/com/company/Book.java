@@ -259,7 +259,7 @@ public class Book {
     public void filterTheBooksByCategory() throws SQLException {
         String FilterQuery = "Select ISBN, BookName ,BookCategory" +
                 " from books inner join " +
-                "bookcategories b on books.BookCategory = b.Cate_Id where books.BookCategory=? ";
+                "bookcategories b on books.BookCategory = b.Cate_Id where books.BookCategory=? and price !=0 ";
         BookCategories bc = new BookCategories();
         bc.viewCategories();
         System.out.println("Select the Category Id");

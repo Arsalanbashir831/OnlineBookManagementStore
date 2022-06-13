@@ -64,14 +64,14 @@ public class Status {
         ps.executeUpdate();
         System.out.println("New Status Name updated Successfully");
     }
-    public void DeleteStatus() throws SQLException {
-        String deleteQueryById="delete from status where StatusId=?";
-        System.out.println("Enter the Status id  : ");
-        statusId=in.nextInt();
-        ps=db.connection.prepareStatement(deleteQueryById);
-        ps.setInt(1,statusId);
-        ps.executeUpdate();
-        System.out.println("Status of id "+ statusId +"is deleted successfully");
-
-    }
+//    public void DeleteStatus() throws SQLException {
+//        String deleteQueryById="delete from status where StatusId=?";
+//        System.out.println("Enter the Status id  : ");
+//        statusId=in.nextInt();
+//        ps=db.connection.prepareStatement(deleteQueryById);
+//        ps.setInt(1,statusId);
+//        ps.executeUpdate();
+//        System.out.println("Status of id "+ statusId +"is deleted successfully");
+//
+//    }
 }

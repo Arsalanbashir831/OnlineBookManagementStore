@@ -4,6 +4,25 @@ public class CharityBook extends Book {
     public CharityBook() throws SQLException {
     }
     Order order= new Order();
+
+    @Override
+    public void filterTheBooksByCategory() throws SQLException {
+        String FilterQuery = "Select ISBN, BookName ,BookCategory" +
+                " from books inner join " +
+                "bookcategories b on books.BookCategory = b.Cate_Id where books.BookCategory=? and price = 0 ";
+        BookCategories bc = new BookCategories();
+        bc.viewCategories();
+        System.out.println("Select the Category Id");
+        category = in.nextInt();
+        ps = db.connection.prepareStatement(FilterQuery);
+        ps.setInt(1, category);
+        rs = ps.executeQuery();
+        System.out.println("ISBN || Books || Category");
+        while (rs.next()) {
+            System.out.println(rs.getInt(1) + "   " + rs.getString(2) + "   " + rs.getString(3));
+        }
+    }
+
     @Override
     public void addBooks() throws SQLException {
         System.out.println("Enter the Id of the Books : ");
@@ -130,8 +149,9 @@ public class CharityBook extends Book {
             System.out.println("1- View Charity Books");
             System.out.println("2- Get Charity Books ");
             System.out.println("3- View Your Charity In Order");
-            System.out.println("4- Do Donation");
-            System.out.println("5- Back");
+            System.out.println("4- View Your Charity In Order");
+            System.out.println("5- Do Donation");
+            System.out.println("6- Back");
             opt=in.nextInt();
             if (opt == 1) {
                 viewBooks();
@@ -140,8 +160,10 @@ public class CharityBook extends Book {
             }if (opt == 3) {
                 ViewUserCharityInOrder(userId);
             }if (opt == 4) {
-                addBooks();
+                filterTheBooksByCategory();
             }if (opt == 5) {
+                addBooks();
+            }if (opt == 6) {
                 break;
             }
         }

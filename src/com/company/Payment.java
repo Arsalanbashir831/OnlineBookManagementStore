@@ -48,23 +48,25 @@ public class Payment {
         ps.close();
     }
     public void deletePaymentMethod() throws SQLException {
-
-        String deleteQueryById="delete from payment where Pid=?";
         System.out.println("Enter the Payment id of the Payment method : ");
         Pid=in.nextInt();
+        String deleteFromChild="delete from userspayment where Pid=?";
+        ps=db.connection.prepareStatement(deleteFromChild);
+        ps.setInt(1,Pid);
+        ps.executeUpdate();
+        String deleteQueryById="delete from payment where Pid=?";
         ps=db.connection.prepareStatement(deleteQueryById);
         ps.setInt(1,Pid);
         ps.executeUpdate();
         System.out.println(" Payment method of  "+ Pid +"is deleted successfully");
-
     }
     public void UpdatePaymentMethod() throws SQLException {
         viewPaymentMethod();
-        String UpdateQuery="UPDATE payment set Pname=? where Pid = ? ";
         System.out.println("Enter the id of the Payment method : ");
         Pid=in.nextInt();
         System.out.println("Enter the updated Name of the Payment");
         Pname=in.next();
+        String UpdateQuery="UPDATE payment set Pname=? where Pid = ? ";
         ps=db.connection.prepareStatement(UpdateQuery);
         ps.setString(1,Pname);
         ps.setInt(2,Pid);
