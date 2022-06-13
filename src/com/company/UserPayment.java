@@ -26,7 +26,7 @@ ResultSet rs;
             payment.Pid = in.nextInt();
             if (rs.next()) {
                 System.out.println("You already have selected that id");
-                System.out.println("Enter again");
+                System.out.println("Enter again....");
             } else {
                 String insert = "insert into userspayment (userid, pid)  values (?,?)";
                 ps = db.connection.prepareStatement(insert);
