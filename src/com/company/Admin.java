@@ -16,8 +16,6 @@ public class Admin extends User{
     Rank rank= new Rank();
     Review rev = new Review();
     Status status = new Status();
-
-
     Scanner in = new Scanner(System.in);
 
     public Admin() throws SQLException {

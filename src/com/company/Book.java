@@ -300,8 +300,6 @@ public class Book {
             System.out.print("|| \t" + rs.getString(8) + "\t ");
             System.out.println("|| \t" + rs.getString(9) + "\t ");
         }
-
-
     }
 
     public void BookMenu(int userId) throws SQLException {
@@ -312,7 +310,7 @@ public class Book {
             System.out.println("2- Search Books By Name ");
             System.out.println("3- Search Books By Category ");
             System.out.println("4- Order Books");
-            System.out.println("5- View Orders");
+            System.out.println("5- View Orders History");
             System.out.println("6- Back");
             opt = in.nextInt();
             if (opt == 1) {
@@ -328,7 +326,7 @@ public class Book {
                 order.DoOrder(userId);
             }
             if (opt == 5) {
-                order.ViewSpecificUserOrder(userId);
+                order.viewOrderHistory(userId);
             }
             if (opt == 6) {
                 break;

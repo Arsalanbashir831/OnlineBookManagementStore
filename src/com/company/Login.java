@@ -54,11 +54,8 @@ public class Login {
                // ps.close();
             } else {
                 System.out.println("Invalid credentials try again ");
-
             }
-
         }
-
     }
 
 }
