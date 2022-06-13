@@ -13,19 +13,29 @@ ResultSet rs;
 
     public UserPayment() throws SQLException {
     }
+
+
     public void choosePaymentMethod(int userId) throws SQLException {
         //User user = new User();
-        Payment payment=new Payment();
+        Payment payment = new Payment();
 //        System.out.println("Enter your id  ");
 //        userId=in.nextInt();
         payment.viewPaymentMethod();
-        System.out.println("Select the id of the payment ");
-       payment.Pid=in.nextInt();
-       String  insert="insert into userspayment (userid, pid)  values (?,?)";
-       ps=db.connection.prepareStatement(insert);
-       ps.setInt(1,userId);
-       ps.setInt(2,payment.Pid);
-       ps.executeUpdate();
+        while (true) {
+            System.out.println("Select the id of the payment ");
+            payment.Pid = in.nextInt();
+            if (rs.next()) {
+                System.out.println("You already have selected that id");
+                System.out.println("Enter again");
+            } else {
+                String insert = "insert into userspayment (userid, pid)  values (?,?)";
+                ps = db.connection.prepareStatement(insert);
+                ps.setInt(1, userId);
+                ps.setInt(2, payment.Pid);
+                ps.executeUpdate();
+                break;
+            }
+        }
     }
     public void viewOwnPaymentMethod(int userId) throws SQLException {
 String view="SELECT Pname from userspayment \n" +
