@@ -27,8 +27,7 @@ ResultSet rs;
         ps = db.connection.prepareStatement(insert);
         ps.setInt(1, userId);
         ps.setInt(2, payment.Pid);
-
-            ps.executeUpdate();
+        ps.executeUpdate();
     }
     public void viewOwnPaymentMethod(int userId) throws SQLException {
 String view="SELECT  Pname from userspayment \n" +
