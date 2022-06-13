@@ -1,8 +1,6 @@
 package com.company;
-
 import java.sql.SQLException;
 import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) throws SQLException {
@@ -30,5 +28,6 @@ public class Main {
 //        System.out.println(a);
 //       int a=b.getPrice(1);
 //        System.out.println(a);
+
     }
 }

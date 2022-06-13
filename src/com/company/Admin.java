@@ -16,10 +16,8 @@ public class Admin extends User{
     Review rev = new Review();
     Status status = new Status();
     Scanner in = new Scanner(System.in);
-
     public Admin() throws SQLException {
     }
-
     public void AdminMenu() throws SQLException {
         System.out.println("Welcome to the admin menu");
         int opt;
