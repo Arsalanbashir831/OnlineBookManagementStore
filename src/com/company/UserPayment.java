@@ -13,7 +13,6 @@ ResultSet rs;
 
     public UserPayment() throws SQLException {
     }
-
     public void choosePaymentMethod(int userId) throws SQLException {
         //User user = new User();
         Payment payment=new Payment();

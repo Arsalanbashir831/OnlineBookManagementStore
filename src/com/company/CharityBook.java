@@ -7,13 +7,14 @@ public class CharityBook extends Book {
 
     @Override
     public void filterTheBooksByCategory() throws SQLException {
-        String FilterQuery = "Select ISBN, BookName ,BookCategory" +
-                " from books inner join " +
-                "bookcategories b on books.BookCategory = b.Cate_Id where books.BookCategory=? and price = 0 ";
+
         BookCategories bc = new BookCategories();
         bc.viewCategories();
         System.out.println("Select the Category Id");
         category = in.nextInt();
+        String FilterQuery = "Select ISBN, BookName ,b.Category_name" +
+                " from books inner join " +
+                "bookcategories b on books.BookCategory = b.Cate_Id where books.BookCategory=? and price = 0 ";
         ps = db.connection.prepareStatement(FilterQuery);
         ps.setInt(1, category);
         rs = ps.executeQuery();
@@ -85,7 +86,7 @@ public class CharityBook extends Book {
         rs = ps.executeQuery();
         System.out.println("ISBN  || Book Name || Credits ");
         while (rs.next()) {
-            ISBN = rs.getInt(1);
+            int ISBN = rs.getInt(1);
             String BookName = rs.getString(2);
             String Credit = rs.getString(3);
             System.out.println(ISBN + "   \t" + BookName + "   \t" + Credit);
@@ -131,9 +132,9 @@ public class CharityBook extends Book {
     }
 
     public void ViewUserCharityInOrder(int userId) throws SQLException {
-        String view = "SELECT ISBN,b.BookName from  orders " +
+        String view = "SELECT orders.ISBN,b.BookName from  orders " +
                 "inner join books b on orders.ISBN = b.ISBN " +
-                "where Price=0 AND UserId=?; ";
+                "where orders.Price=0 AND orders.UserId=?; ";
         ps=db.connection.prepareStatement(view);
         ps.setInt(1,userId);
         rs=ps.executeQuery();
@@ -149,7 +150,7 @@ public class CharityBook extends Book {
             System.out.println("1- View Charity Books");
             System.out.println("2- Get Charity Books ");
             System.out.println("3- View Your Charity In Order");
-            System.out.println("4- View Your Charity In Order");
+            System.out.println("4- Search Charity Book in Category");
             System.out.println("5- Do Donation");
             System.out.println("6- Back");
             opt=in.nextInt();
