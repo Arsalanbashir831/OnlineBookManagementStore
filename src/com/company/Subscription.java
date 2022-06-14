@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 public class Subscription {
     DatabaseConnection db= new DatabaseConnection();
-
     public Subscription() throws SQLException {
     }
     public void viewSub() throws SQLException {

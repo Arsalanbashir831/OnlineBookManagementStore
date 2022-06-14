@@ -87,6 +87,4 @@ public class Rank {
         System.out.println("Rank Name updated Successfully");
 
     }
-
-
 }

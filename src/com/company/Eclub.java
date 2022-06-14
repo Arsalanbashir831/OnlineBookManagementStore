@@ -26,7 +26,6 @@ public class Eclub  {
         ps.executeUpdate();
         ps.close();
         return discountAvailible;
-
     }
 
     double discountedPrice(int isbn, int userId) throws SQLException {

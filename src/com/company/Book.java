@@ -1,5 +1,4 @@
 package com.company;
-
 import java.sql.*;
 import java.util.Scanner;
 
@@ -10,8 +9,8 @@ public class Book {
     String BookName, authorName, publisherName;
     String month, date, year;
 
-    ResultSet rs;
-    PreparedStatement ps;
+    ResultSet rs; // data row fetch database se
+    PreparedStatement ps; // ? ki jaga agay aapne user ka data enter krwana ho yah input leni ho
     Scanner in = new Scanner(System.in);
     DatabaseConnection db = new DatabaseConnection();
 
@@ -110,7 +109,6 @@ public class Book {
 
         System.out.println("Book is Inserted successfully ");
     }
-
 
     public void deleteBook() throws SQLException {
         viewBooks();

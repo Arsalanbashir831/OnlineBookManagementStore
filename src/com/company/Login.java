@@ -47,7 +47,6 @@ public class Login {
                     System.out.println("We will redirect to customer page");
                     Customer customer = new Customer();
                     customer.customerMenu(rs.getInt(1), rs.getString(2));
-
                 } else {
                     System.out.println("Invalid roles");
                 }

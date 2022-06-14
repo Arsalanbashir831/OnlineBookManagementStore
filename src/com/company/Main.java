@@ -29,5 +29,9 @@ public class Main {
 //       int a=b.getPrice(1);
 //        System.out.println(a);
 
+
+        // inheritence = Book ,User
+        // polymoriphism= Chairty Book, Admin ,Customer
+
     }
 }

@@ -49,6 +49,7 @@ public class Signup {
                 Thread.currentThread().interrupt();
             }
         }
+
         String insertQuery="insert into " +
                 "users (UserId,UserName,UserPassword,UserEmail,UserGender,UserAddress,UserRole)"
                 +"values (?,?,?,?,?,?,?)";
@@ -61,6 +62,12 @@ public class Signup {
         ps.setString(6,user.userAddress);
         ps.setInt(7,user.userRole);
         ps.executeUpdate();
+
+        if (user.userRole==2){
+            UserPayment userPayment = new UserPayment();
+            userPayment.choosePaymentMethod(user.userId);
+            System.out.println("Payment Method is Selected");
+        }
         System.out.println("Congratulation your account is Created Successfully");
         Customer customer= new Customer();
         customer.customerMenu(user.userId,user.username);

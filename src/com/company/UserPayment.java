@@ -13,21 +13,31 @@ ResultSet rs;
 
     public UserPayment() throws SQLException {
     }
-
-
     public void choosePaymentMethod(int userId) throws SQLException {
         //User user = new User();
         Payment payment = new Payment();
 //        System.out.println("Enter your id  ");
 //        userId=in.nextInt();
-        System.out.println("Select the id of the payment ");
-        payment.Pid = in.nextInt();
         payment.viewPaymentMethod();
-        String insert = "insert into userspayment (userid, pid)  values (?,?)";
-        ps = db.connection.prepareStatement(insert);
-        ps.setInt(1, userId);
-        ps.setInt(2, payment.Pid);
-        ps.executeUpdate();
+        int pid=0;
+        System.out.println("Select the id of the payment ");
+        pid = in.nextInt();
+        //Not allowing the duplicate payment
+        String fetch="Select * from userspayment where UserId =? and Pid =?";
+        ps=db.connection.prepareStatement(fetch);
+        ps.setInt(1,userId);
+        ps.setInt(2,pid);
+        rs=ps.executeQuery();
+            if (rs.next()){
+                System.out.println("You already have that payment method");
+            }
+            else {
+                String insert = "insert into userspayment (userid, pid)  values (?,?)";
+                ps = db.connection.prepareStatement(insert);
+                ps.setInt(1, userId);
+                ps.setInt(2, pid);
+                ps.executeUpdate();
+            }
     }
     public void viewOwnPaymentMethod(int userId) throws SQLException {
 String view="SELECT  Pname from userspayment \n" +
