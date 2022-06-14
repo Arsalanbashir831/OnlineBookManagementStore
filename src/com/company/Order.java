@@ -152,8 +152,9 @@ public class Order {
         if (flag == false) {
             System.out.println("Total Bill : " + price);
             UserPayment userPayment = new UserPayment();
-            System.out.println("Select Your Selected Payment Option ");
-            userPayment.choosePaymentMethod(userId);
+            System.out.println("Select Payment Id of Your Selected Payment Option ");
+            userPayment.viewOwnPaymentMethod(userId);
+            int dumb=in.nextInt();
             System.out.println("Your Order is Completed");
             String UpdateStatus="Update Orders set Delivery_Status=2 where UserId=?";
             ps=db.connection.prepareStatement(UpdateStatus);
