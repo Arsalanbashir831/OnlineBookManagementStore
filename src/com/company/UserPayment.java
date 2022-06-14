@@ -72,7 +72,6 @@ String view="SELECT  Pname from userspayment \n" +
         }
     }
 
-
     public void viewAllUserPaymentMethod() throws SQLException {
         String view="SELECT Pname ,UserName from userspayment \n" +
                 "inner join payment p on userspayment.Pid = p.Pid\n" +

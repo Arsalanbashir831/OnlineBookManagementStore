@@ -112,7 +112,7 @@ public class CharityBook extends Book {
     public void getCharityBooks(int id) throws SQLException {
         String getBook = "INSERT INTO `orders`" +
                 " (`UserId`, `ISBN`, `Quantity`, `Price`, `Delivery_Status`)" +
-                " VALUES (?, ?, ?, 0, 1)";
+                " VALUES (?, ?, ?, 0, 2)";
         viewBooks();
         System.out.println("Enter the ISBN of the book");
         ISBN = in.nextInt();
