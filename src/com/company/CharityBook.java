@@ -117,6 +117,7 @@ public class CharityBook extends Book {
         System.out.println("Enter the ISBN of the book");
         ISBN = in.nextInt();
         while (true) {
+            int Quantity=0;
             System.out.println("Enter the Quantity");
             Quantity = in.nextInt();
             if (Quantity >= 2) {
