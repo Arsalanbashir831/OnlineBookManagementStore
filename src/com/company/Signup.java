@@ -20,6 +20,7 @@ public class Signup {
         System.out.println("Enter the User Name : ");
         user.username=in.next();
         System.out.println("Enter your password");
+        in.nextLine();
         user.userPassword=in.next();
             System.out.println("Enter your email");
             user.userEmail=in.next();
